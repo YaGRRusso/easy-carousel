@@ -12,7 +12,8 @@ window.addEventListener('resize', () => {
 // CAROUSEL
 const getCarouselProperties = () => {
     const slidesCount = document.querySelectorAll('.carousel-slide').length;
-    const slidesPerScreen = 100 / parseInt(getComputedStyle(document.querySelector('.carousel-slide')).minWidth);
+    const slideWidth = parseInt(getComputedStyle(document.querySelector('.carousel-slide')).minWidth);
+    const slidesPerScreen = Math.round(100 / slideWidth);
     const screensCount = Math.ceil(slidesCount / slidesPerScreen);
     const translatePercent = 100 * slidesPerScreen;
 
@@ -45,33 +46,41 @@ const setCarouselDots = () => {
     let html = ''
 
     for (i = 0; i < carouselProperties.screensCount; i++) {
-        html += `<button data-carouselPosition="${i}" onclick="handleCarouselMove(${i})" class="carousel-dot ${i === 0 ? 'active' : false}">${i}</button>`
+        html += `<button data-carouselPosition="${i}" onclick="handleCarouselMove(${i})" class="carousel-dot ${i === globalCarouselMovesCount ? 'active' : false}"/>`
     }
     document.querySelector('.carousel-dots').innerHTML = html
 }
 setCarouselDots();
 
 
-// GESTURE
+// ACCESSIBILITY
 let globalGestureStart = 0;
 let globalGestureEnd = 0;
-
 const gestureArea = document.querySelector('.carousel');
-gestureArea.addEventListener('touchstart', function (ev) {
+
+window.addEventListener('keydown', (ev) => {
+    ev.key === 'ArrowRight' ? handleCarouselMove('next') : false
+    ev.key === 'ArrowLeft' ? handleCarouselMove('prev') : false
+})
+gestureArea.addEventListener('touchstart', (ev) => {
     globalGestureStart = ev.changedTouches[0].screenX;
 });
-gestureArea.addEventListener('touchend', function (ev) {
+gestureArea.addEventListener('touchend', (ev) => {
     globalGestureEnd = ev.changedTouches[0].screenX;
     handleGesture();
 });
-gestureArea.addEventListener('mousedown', function (ev) {
+gestureArea.addEventListener('mousedown', (ev) => {
     ev.preventDefault();
     globalGestureStart = ev.screenX;
 })
-gestureArea.addEventListener('mouseup', function (ev) {
+gestureArea.addEventListener('mouseup', (ev) => {
     globalGestureEnd = ev.screenX;
     handleGesture();
 })
+// gestureArea.addEventListener('mousewheel', (ev) => {
+//     ev.preventDefault()
+//     ev.deltaY > 0 ? handleCarouselMove('next') : handleCarouselMove('prev');
+// })
 
 function handleGesture() {
     if (globalGestureEnd <= globalGestureStart) {

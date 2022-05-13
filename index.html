@@ -15,32 +15,36 @@
     <!-- =================== CAROUSEL =================== -->
     <div class="carousel-container">
         <div class="carousel">
+            <div class="carousel-controls">
+                <button class="carousel-control" type="button" onclick="handleCarouselMove('prev')">«</button>
+                <button class="carousel-control" type="button" onclick="handleCarouselMove('next')">»</button>
+            </div>
 
-            <div class="carousel-slide">
-                <img src="https://picsum.photos/1280/720?random=1" alt="">
-            </div>
-            <div class="carousel-slide">
-                <img src="https://picsum.photos/1280/720?random=2" alt="">
-            </div>
-            <div class="carousel-slide">
-                <img src="https://picsum.photos/1280/720?random=3" alt="">
-            </div>
-            <div class="carousel-slide">
-                <img src="https://picsum.photos/1280/720?random=4" alt="">
-            </div>
-            <div class="carousel-slide">
-                <img src="https://picsum.photos/1280/720?random=5" alt="">
+            <div class="carousel-slider">
+                <div class="carousel-slide">
+                    <img src="https://picsum.photos/1280/720?random=1" alt="img1" style="width: 100%;">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://picsum.photos/1280/720?random=2" alt="img2" style="width: 100%;">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://picsum.photos/1280/720?random=3" alt="img3" style="width: 100%;">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://picsum.photos/1280/720?random=4" alt="img4" style="width: 100%;">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://picsum.photos/1280/720?random=5" alt="img5" style="width: 100%;">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://picsum.photos/1280/720?random=6" alt="img6" style="width: 100%;">
+                </div>
             </div>
 
         </div>
+        <div class="carousel-dots"></div>
     </div>
     <!-- =================== CAROUSEL =================== -->
-    <div>
-        <button onclick="handleCarouselMove('prev')">«</button>
-        <button onclick="handleCarouselMove('next')">»</button>
-    </div>
-    <div class="carousel-dots">
-    </div>
 
 </body>
 
