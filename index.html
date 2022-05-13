@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousel</title>
+    <link rel="stylesheet" href="assets/carousel.css">
+    <script src="assets/carousel.js" defer></script>
+</head>
+
+<body>
+
+    <!-- =================== CAROUSEL =================== -->
+    <div class="carousel-container">
+        <div class="carousel">
+
+            <div class="carousel-slide">
+                <img src="https://picsum.photos/1280/720?random=1" alt="">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://picsum.photos/1280/720?random=2" alt="">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://picsum.photos/1280/720?random=3" alt="">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://picsum.photos/1280/720?random=4" alt="">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://picsum.photos/1280/720?random=5" alt="">
+            </div>
+
+        </div>
+    </div>
+    <!-- =================== CAROUSEL =================== -->
+    <div>
+        <button onclick="handleCarouselMove('prev')">«</button>
+        <button onclick="handleCarouselMove('next')">»</button>
+    </div>
+    <div class="carousel-dots">
+    </div>
+
+</body>
+
+</html>

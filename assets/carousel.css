@@ -1,0 +1,53 @@
+body {
+    margin: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.carousel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background-color: yellow;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    box-sizing: border-box;
+    min-width: 33.33%;
+    max-width: 33.33%;
+    border: 2px solid red;
+    transition: all .3s;
+}
+
+@media (max-width: 768px) {
+    .carousel-slide {
+        min-width: 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 425px) {
+    .carousel-slide {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
+.carousel-slide img {
+    width: 100%;
+}
+
+.carousel-dot.active {
+    background-color: red;
+}
