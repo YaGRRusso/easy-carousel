@@ -1,9 +1,9 @@
-let globalCarouselMovesCount = 0
-let globalCarouselTimer = 0
+let globalCarouselMovesCount = 0;
 
+let resizeEventTimer = 0;
 window.addEventListener('resize', () => {
-    clearTimeout(globalCarouselTimer)
-    globalCarouselTimer = setTimeout(() => {
+    clearTimeout(resizeEventTimer)
+    resizeEventTimer = setTimeout(() => {
         getCarouselProperties()
         setCarouselDots()
     }, 1000)
@@ -14,13 +14,18 @@ const getCarouselProperties = () => {
     const slidesCount = document.querySelectorAll('.carousel-slide').length;
     const slideWidth = parseInt(getComputedStyle(document.querySelector('.carousel-slide')).minWidth);
     const slidesPerScreen = Math.round(100 / slideWidth);
-    const screensCount = Math.ceil(slidesCount / slidesPerScreen);
-    const translatePercent = 100 * slidesPerScreen;
+    // const screensCount = Math.ceil(slidesCount / slidesPerScreen);
+    const screensCount = slidesCount - (slidesPerScreen - 1);
+    // const translatePercent = 100 * slidesPerScreen;
+    const translatePercent = 100;
 
     return { screensCount, translatePercent }
 }
 
 const handleCarouselMove = (value) => {
+    clearInterval(globalCarouselSlideTimer)
+    globalCarouselSlideTimer = setInterval(() => handleCarouselMove('next'), 5000)
+
     const carouselProperties = getCarouselProperties();
     switch (value) {
         case 'prev': globalCarouselMovesCount -= 1
@@ -40,6 +45,7 @@ const handleCarouselMove = (value) => {
     document.querySelector('.carousel-dot.active') ? document.querySelector('.carousel-dot.active').classList.remove('active') : false
     document.querySelector(`[data-carouselPosition="${globalCarouselMovesCount}"]`).classList.add('active')
 }
+let globalCarouselSlideTimer = setInterval(() => { handleCarouselMove('next') }, 5000)
 
 const setCarouselDots = () => {
     const carouselProperties = getCarouselProperties();
@@ -51,7 +57,6 @@ const setCarouselDots = () => {
     document.querySelector('.carousel-dots').innerHTML = html
 }
 setCarouselDots();
-
 
 // ACCESSIBILITY
 let globalGestureStart = 0;
