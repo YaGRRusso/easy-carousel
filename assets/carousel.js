@@ -9,14 +9,17 @@ window.addEventListener('resize', () => {
     }, 1000)
 })
 
+document.querySelector('.carousel-control.prev').addEventListener('click', () => handleCarouselMove('prev'))
+document.querySelector('.carousel-control.next').addEventListener('click', () => handleCarouselMove('next'))
+
 // CAROUSEL
 const getCarouselProperties = () => {
     const slidesCount = document.querySelectorAll('.carousel-slide').length;
     const slideWidth = parseInt(getComputedStyle(document.querySelector('.carousel-slide')).minWidth);
     const slidesPerScreen = Math.round(100 / slideWidth);
     // const screensCount = Math.ceil(slidesCount / slidesPerScreen);
-    const screensCount = slidesCount - (slidesPerScreen - 1);
     // const translatePercent = 100 * slidesPerScreen;
+    const screensCount = slidesCount - (slidesPerScreen - 1);
     const translatePercent = 100;
 
     return { screensCount, translatePercent }
@@ -82,12 +85,8 @@ gestureArea.addEventListener('mouseup', (ev) => {
     globalGestureEnd = ev.screenX;
     handleGesture();
 })
-// gestureArea.addEventListener('mousewheel', (ev) => {
-//     ev.preventDefault()
-//     ev.deltaY > 0 ? handleCarouselMove('next') : handleCarouselMove('prev');
-// })
 
-function handleGesture() {
+const handleGesture = () => {
     if (globalGestureEnd <= globalGestureStart) {
         handleCarouselMove('next');
     }

@@ -1,9 +1,5 @@
 :root {
-    --brand-color: #D7011D;
-}
-
-.carousel-container {
-    width: 90%;
+    --brand-color: #474747;
 }
 
 .carousel-container button {
@@ -21,24 +17,30 @@
     align-items: center;
 }
 
-.carousel-controls {
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: calc(100% + 3rem);
-    z-index: 2;
-    left: -1.5rem;
-}
-
 .carousel-control {
+    position: absolute;
+    aspect-ratio: 1;
     border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
     background-color: var(--brand-color);
     color: #fff;
+    z-index: 5;
+    opacity: .5;
+    transition: all .2s;
     font-size: 1.5rem;
-    padding-bottom: .25rem;
+    height: 2.5rem;
+}
+
+.carousel-control:hover {
+    opacity: 1;
+    box-shadow: 0 1px 6px #00000099;
+}
+
+.carousel-control.prev {
+    left: 1%;
+}
+
+.carousel-control.next {
+    right: 1%;
 }
 
 .carousel-slider {
@@ -57,11 +59,19 @@
     .carousel-slide {
         min-width: 50%;
     }
+
+    .carousel-control {
+        height: 2rem;
+    }
 }
 
 @media (max-width: 425px) {
     .carousel-slide {
         min-width: 100%;
+    }
+
+    .carousel-control {
+        height: 1.5rem;
     }
 }
 
@@ -75,8 +85,10 @@
     border-radius: .25rem;
     width: 1.5rem;
     height: .75rem;
+    transition: all .2s;
 }
 
+.carousel-dot:hover,
 .carousel-dot.active {
     background-color: var(--brand-color);
 }
