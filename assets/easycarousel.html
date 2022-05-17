@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Carousel</title>
+    <link rel="stylesheet" href="easycarousel.css">
+</head>
+
+<body>
+
+    <div class="carousel-container">
+        <!-- =================== COPY =================== -->
+        <div class="carousel">
+            <button class="carousel-control prev" type="button"> « </button>
+            <button class="carousel-control next" type="button"> » </button>
+            <div class="carousel-slider">
+
+                <div class="carousel-slide">
+                    <h1 style="text-align: center;">Content 1</h1>
+                </div>
+                <div class="carousel-slide">
+                    <h1 style="text-align: center;">Content 2</h1>
+                </div>
+                <div class="carousel-slide">
+                    <h1 style="text-align: center;">Content 3</h1>
+                </div>
+                <div class="carousel-slide">
+                    <h1 style="text-align: center;">Content 4</h1>
+                </div>
+
+            </div>
+        </div>
+        <div class="carousel-dots"></div>
+        <!-- =================== COPY =================== -->
+    </div>
+
+</body>
+
+</html>
+
+<script src="easycarousel.js"></script>
+<script defer>
+    new EasyCarousel(document.querySelector('.carousel-container'))
+</script>
