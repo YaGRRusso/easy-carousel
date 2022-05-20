@@ -1,17 +1,10 @@
-:root {
-    --brand-color: #474747;
-    --brand-color-hover: #323232;
-}
-
-.carousel-container {
-    width: 100%;
-}
-
 .carousel {
     position: relative;
     display: flex;
+    justify-content: center;
     align-items: center;
     width: 100%;
+    height: 100%;
 }
 
 .carousel-dot,
@@ -20,38 +13,38 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    border: none;
-    outline: none;
 }
 
 .carousel-control {
     position: absolute;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background-color: var(--brand-color);
-    color: #fff;
     z-index: 5;
     opacity: .5;
     transition: all .2s;
-    font-size: 1.5rem;
-    height: 2.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
-.carousel:hover .carousel-control {
+.carousel:hover .carousel-control,
+.carousel:hover .carousel-dots.absolute {
     opacity: 1;
-}
-
-.carousel-control:hover {
-    background-color: var(--brand-color-hover);
-    transform: scale(1.1);
 }
 
 .carousel-control.prev {
     left: 1%;
 }
 
+.carousel-control.prev.outside {
+    left: -.75rem;
+    opacity: 1;
+}
+
 .carousel-control.next {
     right: 1%;
+}
+
+.carousel-control.next.outside {
+    right: -.75rem;
+    opacity: 1;
 }
 
 .carousel-slider {
@@ -59,44 +52,16 @@
     align-items: stretch;
     overflow: hidden;
     width: 100%;
+    height: 100%;
 }
 
 .carousel-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     box-sizing: border-box;
     transition: all .3s;
-    min-width: 33.33%;
-}
-
-.carousel-slide.small {
-    min-width: 20%;
-}
-
-@media (max-width: 768px) {
-    .carousel-slide {
-        min-width: 50%;
-    }
-
-    .carousel-slide.small {
-        min-width: 33.33%;
-    }
-
-    .carousel-control {
-        height: 2rem;
-    }
-}
-
-@media (max-width: 425px) {
-    .carousel-slide {
-        min-width: 100%;
-    }
-
-    .carousel-slide.small {
-        min-width: 50%;
-    }
-
-    .carousel-control {
-        height: 1.5rem;
-    }
 }
 
 .carousel-dots {
@@ -106,14 +71,23 @@
     margin: .5rem 0;
 }
 
+.carousel-dots.absolute {
+    position: absolute;
+    opacity: .5;
+    bottom: 0;
+}
+
 .carousel-dot {
-    border-radius: .25rem;
-    width: 1.5rem;
+    width: .75rem;
     height: .75rem;
     transition: all .2s;
 }
 
-.carousel-dot:hover,
 .carousel-dot.active {
-    background-color: var(--brand-color);
+    background-color: #000;
+}
+
+/* CONFIG */
+.carousel-slide {
+    min-width: 100%;
 }

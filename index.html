@@ -10,122 +10,249 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Easy Carousel</title>
     <link rel="stylesheet" href="assets/easycarousel.css">
+    <link rel="stylesheet" href="examples/global.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 </head>
 
-<style>
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 1rem;
-    }
+<header id="start">
+    <div class="carousel-background">
+        <div class="carousel">
+            <nav class="fixed-navigation">
+                <ul>
+                    <li><a href="#start">Início da página</a></li>
+                    <li><a href="#about">Sobre o carousel</a></li>
+                    <li><a href="#examples">Exemplos de uso</a></li>
+                    <li><a href="">Onde começar</a></li>
+                </ul>
+            </nav>
+            <div class="carousel-absolute">
+                <div class="header">
+                    <a href="https://www.linkedin.com/in/yago-russo"><i class="devicon-linkedin-plain"></i></a>
+                    <a href="https://github.com/YaGRRusso/easy-carousel"><i class="devicon-github-original"></i></i></a>
+                </div>
+                <div class="hero">
+                    <h1>Easy <strong>Carousel</strong></h1>
+                    <p>Crie sites melhores da forma mais simples e fácil possível!</p>
+                </div>
+                <svg class="scroll-down" xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+                    <path
+                        d="M12 22.625 4.25 14.875 6.225 12.9 10.575 17.25V1.2H13.425V17.25L17.775 12.9L19.75 14.875Z" />
+                </svg>
+            </div>
+            <div class="carousel-slider">
 
-    h1 {
-        text-align: center;
-    }
+                <div class="carousel-slide">
+                    <img src="https://picsum.photos/1280/680?random=1" alt="image">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://picsum.photos/1280/680?random=2" alt="image">
+                </div>
 
-    p {
-        text-align: center;
-    }
-
-    img {
-        width: 100%;
-    }
-
-    .carousel-container {
-        width: 100%;
-    }
-</style>
+            </div>
+        </div>
+    </div>
+</header>
 
 <body>
 
-    <!-- =================== PRIMEIRO CAROUSEL =================== -->
-    <div class="carousel-container">
-        <h1>Normal</h1>
-        <div class="carousel">
-            <button class="carousel-control prev" type="button"> « </button>
-            <button class="carousel-control next" type="button"> » </button>
-            <div class="carousel-slider">
+    <section id="about">
+        <div class="container">
+            <h3 class="section-title">Sobre o carrossel</h3>
+            <p>
+                Criar um carrossel é um grande mistério, existem pouquíssimos tutoriais sobre como desenvolver uma
+                ferramenta realmente útil do zero, o comum a se fazer é sempre utilizar projetos prontos,
+                infelizmente alguns são desatualizados e/ou utilizam tecnologias complementares desnecessárias (como
+                jQuery), que acabam deixando o código mais pesado, além do tempo perdido apenas
+                para entender como funciona o script e enfim poder personalizar o carrossel exatamente como queremos.
+                <br>
+                Pensando nisso foi preciso criar um carrossel super genérico, sem nenhuma estilização e
+                que funcione para qualquer um, nada de scripts ou estilizações que o usuário nunca vai precisar usar (ou
+                vai perder tempo tentando alterar algo), o resultado foi o Easy Carousel.
+            </p>
+            <div class="carousel-about">
+                <div class="carousel">
+                    <button class="carousel-control prev" type="button"> « </button>
+                    <button class="carousel-control next" type="button"> » </button>
+                    <div class="carousel-slider">
 
-                <div class="carousel-slide" style="background-color: #303030">
-                    <div style="height: 180px">
-                        <h1>Screen 1</h1>
-                        <p>This is the first screen in the carousel.</p>
-                    </div>
-                </div>
-                <div class="carousel-slide" style="background-color: #454545">
-                    <div style="height: 180px">
-                        <h1>Screen 2</h1>
-                        <p>This is the second screen in the carousel.</p>
-                    </div>
-                </div>
-                <div class="carousel-slide" style="background-color: #606060">
-                    <div style="height: 180px">
-                        <h1>Screen 3</h1>
-                        <p>This is the third screen in the carousel.</p>
-                    </div>
-                </div>
-                <div class="carousel-slide" style="background-color: #757575">
-                    <div style="height: 180px">
-                        <h1>Screen 4</h1>
-                        <p>This is the fourth screen in the carousel.</p>
-                    </div>
-                </div>
-                <div class="carousel-slide" style="background-color: #909090">
-                    <div style="height: 180px">
-                        <h1>Screen 5</h1>
-                        <p>This is the fifth screen in the carousel.</p>
-                    </div>
-                </div>
+                        <div class="carousel-slide">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                                    <path
+                                        d="M19.4 44 18.4 37.7Q17.45 37.35 16.4 36.75Q15.35 36.15 14.55 35.5L8.65 38.2L4 30L9.4 26.05Q9.3 25.6 9.275 25.025Q9.25 24.45 9.25 24Q9.25 23.55 9.275 22.975Q9.3 22.4 9.4 21.95L4 18L8.65 9.8L14.55 12.5Q15.35 11.85 16.4 11.25Q17.45 10.65 18.4 10.35L19.4 4H28.6L29.6 10.3Q30.55 10.65 31.625 11.225Q32.7 11.8 33.45 12.5L39.35 9.8L44 18L38.6 21.85Q38.7 22.35 38.725 22.925Q38.75 23.5 38.75 24Q38.75 24.5 38.725 25.05Q38.7 25.6 38.6 26.1L44 30L39.35 38.2L33.45 35.5Q32.65 36.15 31.625 36.775Q30.6 37.4 29.6 37.7L28.6 44ZM24 30.5Q26.7 30.5 28.6 28.6Q30.5 26.7 30.5 24Q30.5 21.3 28.6 19.4Q26.7 17.5 24 17.5Q21.3 17.5 19.4 19.4Q17.5 21.3 17.5 24Q17.5 26.7 19.4 28.6Q21.3 30.5 24 30.5ZM24 27.5Q22.55 27.5 21.525 26.475Q20.5 25.45 20.5 24Q20.5 22.55 21.525 21.525Q22.55 20.5 24 20.5Q25.45 20.5 26.475 21.525Q27.5 22.55 27.5 24Q27.5 25.45 26.475 26.475Q25.45 27.5 24 27.5ZM24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24ZM21.8 41H26.2L26.9 35.4Q28.55 35 30.025 34.15Q31.5 33.3 32.7 32.1L38 34.4L40 30.8L35.3 27.35Q35.5 26.5 35.625 25.675Q35.75 24.85 35.75 24Q35.75 23.15 35.65 22.325Q35.55 21.5 35.3 20.65L40 17.2L38 13.6L32.7 15.9Q31.55 14.6 30.1 13.725Q28.65 12.85 26.9 12.6L26.2 7H21.8L21.1 12.6Q19.4 12.95 17.925 13.8Q16.45 14.65 15.3 15.9L10 13.6L8 17.2L12.7 20.65Q12.5 21.5 12.375 22.325Q12.25 23.15 12.25 24Q12.25 24.85 12.375 25.675Q12.5 26.5 12.7 27.35L8 30.8L10 34.4L15.3 32.1Q16.5 33.3 17.975 34.15Q19.45 35 21.1 35.4Z" />
+                                </svg>
+                                <h2>Sem Configuração</h2>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                                    <path
+                                        d="M19.95 42 22 27.9H14.7Q14.15 27.9 13.9 27.4Q13.65 26.9 13.9 26.45L26.15 6H28.2L26.15 20.05H33.35Q33.9 20.05 34.175 20.55Q34.45 21.05 34.2 21.5L22 42Z" />
+                                </svg>
+                                <h2>Leve</h2>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                                    <path
+                                        d="M25.7 30Q24.95 30 24.475 29.525Q24 29.05 24 28.3V26H26.4V27.6H31.6V24.95H25.7Q25 24.95 24.5 24.45Q24 23.95 24 23.25V19.7Q24 18.95 24.475 18.475Q24.95 18 25.7 18H32.3Q33.05 18 33.525 18.475Q34 18.95 34 19.7V22H31.6V20.4H26.4V23.05H32.3Q33 23.05 33.5 23.55Q34 24.05 34 24.75V28.3Q34 29.05 33.525 29.525Q33.05 30 32.3 30ZM13.7 30Q12.95 30 12.475 29.525Q12 29.05 12 28.3V25H14.4V27.6H18.6V18H21V28.3Q21 29.05 20.525 29.525Q20.05 30 19.3 30Z" />
+                                </svg>
+                                <h2>Javascript Puro</h2>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                                    <path
+                                        d="M4 40V35.5H8.3V11Q8.3 9.8 9.2 8.9Q10.1 8 11.3 8H42.3V11H11.3Q11.3 11 11.3 11Q11.3 11 11.3 11V35.5H23V40ZM27.95 40Q27.15 40 26.575 39.4Q26 38.8 26 37.8V15.95Q26 15.15 26.575 14.575Q27.15 14 27.95 14H41.55Q42.55 14 43.275 14.575Q44 15.15 44 15.95V37.8Q44 38.8 43.275 39.4Q42.55 40 41.55 40ZM29 35.5H41V17H29Z" />
+                                </svg>
+                                <h2>Responsivo</h2>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                                    <path
+                                        d="M4 13.1V3.3H6.45V8.4Q10.1 5.25 14.575 3.625Q19.05 2 23.9 2Q28.75 2 33.275 3.625Q37.8 5.25 41.5 8.4V3.3H44V13.1H34.45V10.65H40.45Q37 7.65 32.75 5.95Q28.5 4.25 23.9 4.25Q19.35 4.25 15.15 5.95Q10.95 7.65 7.5 10.65H13.5V13.1ZM21.1 46Q20.25 46 19.5 45.675Q18.75 45.35 18.2 44.8L7.9 34.5L10.7 31.6Q11.4 30.9 12.275 30.525Q13.15 30.15 14.1 30.4L18 31.3V15Q18 12.9 19.45 11.45Q20.9 10 23 10Q25.1 10 26.55 11.45Q28 12.9 28 15V24H29.3Q29.55 24 29.775 24.05Q30 24.1 30.25 24.2L37.6 27.5Q38.8 28.05 39.375 29.275Q39.95 30.5 39.7 31.8L37.9 42.7Q37.65 44.15 36.5 45.075Q35.35 46 33.9 46ZM20.7 43H34.75L36.9 30.55Q36.9 30.55 36.9 30.55Q36.9 30.55 36.9 30.55L27.75 26.4H25V15Q25 14.1 24.45 13.55Q23.9 13 23 13Q22.1 13 21.55 13.55Q21 14.1 21 15V34.95L13.3 33.3L12.15 34.45ZM20.7 43H21Q21 43 21.55 43Q22.1 43 23 43Q23.9 43 24.45 43Q25 43 25 43H27.75H34.75Q34.75 43 34.75 43Q34.75 43 34.75 43Z" />
+                                </svg>
+                                <h2>Gestos</h2>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                                    <path
+                                        d="M24 34.95Q27.3 34.95 30.075 33.175Q32.85 31.4 34.1 28.35H13.9Q15.2 31.4 17.95 33.175Q20.7 34.95 24 34.95ZM15.1 21.35 17.35 19.1 19.6 21.35 21.4 19.55 17.35 15.5 13.3 19.55ZM28.45 21.35 30.7 19.1 32.95 21.35 34.75 19.55 30.7 15.5 26.65 19.55ZM24 44Q19.9 44 16.25 42.425Q12.6 40.85 9.875 38.125Q7.15 35.4 5.575 31.75Q4 28.1 4 24Q4 19.85 5.575 16.2Q7.15 12.55 9.875 9.85Q12.6 7.15 16.25 5.575Q19.9 4 24 4Q28.15 4 31.8 5.575Q35.45 7.15 38.15 9.85Q40.85 12.55 42.425 16.2Q44 19.85 44 24Q44 28.1 42.425 31.75Q40.85 35.4 38.15 38.125Q35.45 40.85 31.8 42.425Q28.15 44 24 44ZM24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24ZM24 41Q31.1 41 36.05 36.025Q41 31.05 41 24Q41 16.9 36.05 11.95Q31.1 7 24 7Q16.95 7 11.975 11.95Q7 16.9 7 24Q7 31.05 11.975 36.025Q16.95 41 24 41Z" />
+                                </svg>
+                                <h2>Fácil</h2>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                                    <path
+                                        d="M21 23H27V8Q27 6.7 26.15 5.85Q25.3 5 24 5Q22.75 5 21.875 5.85Q21 6.7 21 8ZM9 31H39V25Q39 25 39 25Q39 25 39 25H9Q9 25 9 25Q9 25 9 25ZM5.8 43H13V38Q13 37.55 13.3 37.275Q13.6 37 14 37Q14.45 37 14.725 37.275Q15 37.55 15 38V43H23V38Q23 37.55 23.3 37.275Q23.6 37 24 37Q24.45 37 24.725 37.275Q25 37.55 25 38V43H33V38Q33 37.55 33.3 37.275Q33.6 37 34 37Q34.45 37 34.725 37.275Q35 37.55 35 38V43H42.2Q42.2 43 42.2 43Q42.2 43 42.2 43L39.7 33H8.3L5.8 43Q5.8 43 5.8 43Q5.8 43 5.8 43ZM40.9 46H7.1Q5.15 46 3.95 44.45Q2.75 42.9 3.25 41L6 30V26Q6 24.35 7.175 23.175Q8.35 22 10 22H18V8Q18 5.5 19.75 3.75Q21.5 2 24 2Q26.5 2 28.25 3.75Q30 5.5 30 8V22H38Q39.65 22 40.825 23.175Q42 24.35 42 26V30L44.75 41Q45.25 42.9 44.05 44.45Q42.85 46 40.9 46ZM27 23H21Q21 23 21.875 23Q22.75 23 24 23Q25.3 23 26.15 23Q27 23 27 23ZM39 25H9Q9 25 9 25Q9 25 9 25H39Q39 25 39 25Q39 25 39 25Z" />
+                                </svg>
+                                <h2>Limpo</h2>
+                            </div>
+                        </div>
+                        <div class="carousel-slide">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                                    <path
+                                        d="M17.8 42H9Q7.8 42 6.9 41.1Q6 40.2 6 39V30.2Q8.2 29.95 9.775 28.475Q11.35 27 11.35 24.85Q11.35 22.7 9.775 21.225Q8.2 19.75 6 19.5V10.7Q6 9.5 6.9 8.6Q7.8 7.7 9 7.7H17.85Q18.4 5.7 19.825 4.35Q21.25 3 23.25 3Q25.25 3 26.675 4.35Q28.1 5.7 28.65 7.7H37.3Q38.5 7.7 39.4 8.6Q40.3 9.5 40.3 10.7V19.35Q42.3 19.9 43.575 21.425Q44.85 22.95 44.85 24.95Q44.85 26.95 43.575 28.3Q42.3 29.65 40.3 30.2V39Q40.3 40.2 39.4 41.1Q38.5 42 37.3 42H28.5Q28.25 39.6 26.725 38.125Q25.2 36.65 23.15 36.65Q21.1 36.65 19.575 38.125Q18.05 39.6 17.8 42ZM9 39H15.5Q16.75 35.95 19 34.8Q21.25 33.65 23.15 33.65Q25.05 33.65 27.3 34.8Q29.55 35.95 30.8 39H37.3V27.25H39.55Q40.55 27.25 41.2 26.6Q41.85 25.95 41.85 24.95Q41.85 23.95 41.2 23.3Q40.55 22.65 39.55 22.65H37.3V10.7H25.55V8.3Q25.55 7.3 24.9 6.65Q24.25 6 23.25 6Q22.25 6 21.6 6.65Q20.95 7.3 20.95 8.3V10.7H9V17.2Q11.4 18.1 12.875 20.2Q14.35 22.3 14.35 24.85Q14.35 27.4 12.875 29.5Q11.4 31.6 9 32.5ZM25.45 22.5Q25.45 22.5 25.45 22.5Q25.45 22.5 25.45 22.5Q25.45 22.5 25.45 22.5Q25.45 22.5 25.45 22.5Q25.45 22.5 25.45 22.5Q25.45 22.5 25.45 22.5Q25.45 22.5 25.45 22.5Q25.45 22.5 25.45 22.5Q25.45 22.5 25.45 22.5Q25.45 22.5 25.45 22.5Q25.45 22.5 25.45 22.5Q25.45 22.5 25.45 22.5Q25.45 22.5 25.45 22.5Q25.45 22.5 25.45 22.5Q25.45 22.5 25.45 22.5Q25.45 22.5 25.45 22.5Z" />
+                                </svg>
+                                <h2>Funcionamento Individual</h2>
+                            </div>
+                        </div>
 
+                    </div>
+                </div>
+                <div class="carousel-dots"></div>
             </div>
         </div>
-        <div class="carousel-dots"></div>
-    </div>
-    <!-- =================== PRIMEIRO CAROUSEL =================== -->
+    </section>
 
-    <!-- =================== SEGUNDO CAROUSEL =================== -->
-    <div class="carousel-container small">
-        <h1>Small</h1>
-        <div class="carousel">
-            <button class="carousel-control prev" type="button"> « </button>
-            <button class="carousel-control next" type="button"> » </button>
-            <div class="carousel-slider">
-
-                <div class="carousel-slide small">
-                    <img src="https://picsum.photos/160/80?random=1" alt="image">
+    <section id="examples">
+        <div class="container">
+            <h3 class="section-title">Exemplo de uso</h3>
+            <p>
+                Como o Easy Carousel não possui nenhuma estilização e o seu script se adapta automaticamente ao conteúdo
+                do container, é possível criar qualquer coisa que imaginar, o céu é o limite! Veja alguns
+                exemplos abaixo, seguido de seus códigos.
+            </p>
+            <div class="example">
+                <h4 class="example-title">.carousel-dot & .carousel-control</h4>
+                <p>
+                    Exemplos de formas de uso dos dots e botões de controle do carrossel, utilizando
+                    a estilização padrão (limpa).
+                </p>
+                <div class="carousel-example dots-control-out" style="padding: 1rem 1.75rem;">
+                    <div class="example-info">
+                        <p>Dots e controls fora do carrossel</p>
+                        <div>
+                            <span>ver código</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+                                <path
+                                    d="M12 15.5Q13.4 15.5 14.55 14.837Q15.7 14.175 16.35 13Q15.7 11.825 14.55 11.162Q13.4 10.5 12 10.5Q10.6 10.5 9.45 11.162Q8.3 11.825 7.65 13Q8.3 14.175 9.45 14.837Q10.6 15.5 12 15.5ZM12 17Q9.95 17 8.338 15.887Q6.725 14.775 6 13Q6.725 11.225 8.338 10.113Q9.95 9 12 9Q14.05 9 15.663 10.113Q17.275 11.225 18 13Q17.275 14.775 15.663 15.887Q14.05 17 12 17ZM12 14.5Q11.375 14.5 10.938 14.062Q10.5 13.625 10.5 13Q10.5 12.375 10.938 11.938Q11.375 11.5 12 11.5Q12.625 11.5 13.062 11.938Q13.5 12.375 13.5 13Q13.5 13.625 13.062 14.062Q12.625 14.5 12 14.5ZM5 21Q4.175 21 3.587 20.413Q3 19.825 3 19V5Q3 4.175 3.587 3.587Q4.175 3 5 3H19Q19.825 3 20.413 3.587Q21 4.175 21 5V19Q21 19.825 20.413 20.413Q19.825 21 19 21ZM5 19H19Q19 19 19 19Q19 19 19 19V7H5V19Q5 19 5 19Q5 19 5 19Z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="carousel">
+                        <button class="carousel-control prev outside" type="button"> « </button>
+                        <button class="carousel-control next outside" type="button"> » </button>
+                        <div class="carousel-slider">
+                            <div class="carousel-slide">
+                                <span>Content 1</span>
+                            </div>
+                            <div class="carousel-slide">
+                                <span>Content 2</span>
+                            </div>
+                            <div class="carousel-slide">
+                                <span>Content 3</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-dots"></div>
                 </div>
-                <div class="carousel-slide small">
-                    <img src="https://picsum.photos/160/80?random=2" alt="image">
+                <div class="carousel-example dots-control-in">
+                    <div class="example-info">
+                        <p>Dots e controls dentro do carrossel</p>
+                        <div>
+                            <span>ver código</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+                                <path
+                                    d="M12 15.5Q13.4 15.5 14.55 14.837Q15.7 14.175 16.35 13Q15.7 11.825 14.55 11.162Q13.4 10.5 12 10.5Q10.6 10.5 9.45 11.162Q8.3 11.825 7.65 13Q8.3 14.175 9.45 14.837Q10.6 15.5 12 15.5ZM12 17Q9.95 17 8.338 15.887Q6.725 14.775 6 13Q6.725 11.225 8.338 10.113Q9.95 9 12 9Q14.05 9 15.663 10.113Q17.275 11.225 18 13Q17.275 14.775 15.663 15.887Q14.05 17 12 17ZM12 14.5Q11.375 14.5 10.938 14.062Q10.5 13.625 10.5 13Q10.5 12.375 10.938 11.938Q11.375 11.5 12 11.5Q12.625 11.5 13.062 11.938Q13.5 12.375 13.5 13Q13.5 13.625 13.062 14.062Q12.625 14.5 12 14.5ZM5 21Q4.175 21 3.587 20.413Q3 19.825 3 19V5Q3 4.175 3.587 3.587Q4.175 3 5 3H19Q19.825 3 20.413 3.587Q21 4.175 21 5V19Q21 19.825 20.413 20.413Q19.825 21 19 21ZM5 19H19Q19 19 19 19Q19 19 19 19V7H5V19Q5 19 5 19Q5 19 5 19Z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="carousel">
+                        <button class="carousel-control prev" type="button"> « </button>
+                        <button class="carousel-control next" type="button"> » </button>
+                        <div class="carousel-slider">
+                            <div class="carousel-slide">
+                                <span>Content 1</span>
+                            </div>
+                            <div class="carousel-slide">
+                                <span>Content 2</span>
+                            </div>
+                            <div class="carousel-slide">
+                                <span>Content 3</span>
+                            </div>
+                        </div>
+                        <div class="carousel-dots absolute"></div>
+                    </div>
                 </div>
-                <div class="carousel-slide small">
-                    <img src="https://picsum.photos/160/80?random=3" alt="image">
+                <div class="carousel-example dots-control-none">
+                    <div class="example-info">
+                        <p>Sem dots e controls</p>
+                        <div>
+                            <span>ver código</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24">
+                                <path
+                                    d="M12 15.5Q13.4 15.5 14.55 14.837Q15.7 14.175 16.35 13Q15.7 11.825 14.55 11.162Q13.4 10.5 12 10.5Q10.6 10.5 9.45 11.162Q8.3 11.825 7.65 13Q8.3 14.175 9.45 14.837Q10.6 15.5 12 15.5ZM12 17Q9.95 17 8.338 15.887Q6.725 14.775 6 13Q6.725 11.225 8.338 10.113Q9.95 9 12 9Q14.05 9 15.663 10.113Q17.275 11.225 18 13Q17.275 14.775 15.663 15.887Q14.05 17 12 17ZM12 14.5Q11.375 14.5 10.938 14.062Q10.5 13.625 10.5 13Q10.5 12.375 10.938 11.938Q11.375 11.5 12 11.5Q12.625 11.5 13.062 11.938Q13.5 12.375 13.5 13Q13.5 13.625 13.062 14.062Q12.625 14.5 12 14.5ZM5 21Q4.175 21 3.587 20.413Q3 19.825 3 19V5Q3 4.175 3.587 3.587Q4.175 3 5 3H19Q19.825 3 20.413 3.587Q21 4.175 21 5V19Q21 19.825 20.413 20.413Q19.825 21 19 21ZM5 19H19Q19 19 19 19Q19 19 19 19V7H5V19Q5 19 5 19Q5 19 5 19Z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="carousel">
+                        <div class="carousel-slider">
+                            <div class="carousel-slide">
+                                <span>Content 1</span>
+                            </div>
+                            <div class="carousel-slide">
+                                <span>Content 2</span>
+                            </div>
+                            <div class="carousel-slide">
+                                <span>Content 3</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="carousel-slide small">
-                    <img src="https://picsum.photos/160/80?random=4" alt="image">
-                </div>
-                <div class="carousel-slide small">
-                    <img src="https://picsum.photos/160/80?random=5" alt="image">
-                </div>
-                <div class="carousel-slide small">
-                    <img src="https://picsum.photos/160/80?random=6" alt="image">
-                </div>
-                <div class="carousel-slide small">
-                    <img src="https://picsum.photos/160/80?random=7" alt="image">
-                </div>
-                <div class="carousel-slide small">
-                    <img src="https://picsum.photos/160/80?random=8" alt="image">
-                </div>
-                <div class="carousel-slide small">
-                    <img src="https://picsum.photos/160/80?random=9" alt="image">
-                </div>
-
             </div>
         </div>
-        <div class="carousel-dots"></div>
-    </div>
-    <!-- =================== SEGUNDO CAROUSEL =================== -->
+    </section>
 
 </body>
 
@@ -133,6 +260,9 @@
 
 <script src="assets/easycarousel.js"></script>
 <script defer>
-    new EasyCarousel(document.querySelector('.carousel-container'))
-    new EasyCarousel(document.querySelector('.carousel-container.small'))
+    new EasyCarousel(document.querySelector('.carousel-background'), 5000)
+    new EasyCarousel(document.querySelector('.carousel-about'), 3000)
+    new EasyCarousel(document.querySelector('.carousel-example.dots-control-in'), 10000)
+    new EasyCarousel(document.querySelector('.carousel-example.dots-control-out'), 10000)
+    new EasyCarousel(document.querySelector('.carousel-example.dots-control-none'), 10000)
 </script>

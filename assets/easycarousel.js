@@ -1,8 +1,11 @@
 let resizeEventTimer = 0;
 class EasyCarousel {
-    constructor(carouselQuery) {
-        let globalCarouselMovesCount = 0;
+    constructor(carouselQuery, autoSlide) {
         this.carouselQuery = carouselQuery
+        this.autoSlide = autoSlide !== 100 || autoSlide !== null ? autoSlide : null
+        let carouselSlideTimer = 0
+        let carouselMovesCount = 0;
+        const carouselHasDots = carouselQuery.querySelector('.carousel-dots')
 
         window.addEventListener('resize', () => {
             clearTimeout(resizeEventTimer)
@@ -12,8 +15,8 @@ class EasyCarousel {
             }, 1000)
         })
 
-        carouselQuery.querySelector('.carousel-control.prev').addEventListener('click', () => handleCarouselMove('prev'))
-        carouselQuery.querySelector('.carousel-control.next').addEventListener('click', () => handleCarouselMove('next'))
+        carouselQuery.querySelector('.carousel-control.prev') ? carouselQuery.querySelector('.carousel-control.prev').addEventListener('click', () => handleCarouselMove('prev')) : false
+        carouselQuery.querySelector('.carousel-control.next') ? carouselQuery.querySelector('.carousel-control.next').addEventListener('click', () => handleCarouselMove('next')) : false
 
         // CAROUSEL
         const getCarouselProperties = () => {
@@ -27,40 +30,46 @@ class EasyCarousel {
         }
 
         const handleCarouselMove = (value) => {
-            clearInterval(globalCarouselSlideTimer)
-            globalCarouselSlideTimer = setInterval(() => handleCarouselMove('next'), 5000)
+            if (autoSlide) {
+                clearInterval(carouselSlideTimer)
+                carouselSlideTimer = setInterval(() => handleCarouselMove('next'), autoSlide)
+            }
 
             const carouselProperties = getCarouselProperties();
             switch (value) {
-                case 'prev': globalCarouselMovesCount -= 1
+                case 'prev': carouselMovesCount -= 1
                     break
-                case 'next': globalCarouselMovesCount += 1
+                case 'next': carouselMovesCount += 1
                     break
-                default: globalCarouselMovesCount = value
+                default: carouselMovesCount = value
             }
 
-            globalCarouselMovesCount >= carouselProperties.screensCount ? globalCarouselMovesCount = 0 : false
-            globalCarouselMovesCount < 0 ? globalCarouselMovesCount = carouselProperties.screensCount - 1 : false
+            carouselMovesCount >= carouselProperties.screensCount ? carouselMovesCount = 0 : false
+            carouselMovesCount < 0 ? carouselMovesCount = carouselProperties.screensCount - 1 : false
 
             carouselQuery.querySelectorAll('.carousel-slide').forEach(item => {
-                item.style.transform = `translateX(-${globalCarouselMovesCount * carouselProperties.translatePercent}%)`
+                item.style.transform = `translateX(-${carouselMovesCount * carouselProperties.translatePercent}%)`
             })
 
-            carouselQuery.querySelector('.carousel-dot.active') ? carouselQuery.querySelector('.carousel-dot.active').classList.remove('active') : ''
-            carouselQuery.querySelector(`[data-carouselPosition="${globalCarouselMovesCount}"]`).classList.add('active')
+            if (carouselHasDots) {
+                carouselQuery.querySelector('.carousel-dot.active') ? carouselQuery.querySelector('.carousel-dot.active').classList.remove('active') : ''
+                carouselQuery.querySelector(`[data-carouselPosition="${carouselMovesCount}"]`).classList.add('active')
+            }
         }
-        let globalCarouselSlideTimer = setInterval(() => { handleCarouselMove('next') }, 5000)
+        autoSlide ? carouselSlideTimer = setInterval(() => { handleCarouselMove('next') }, autoSlide) : false
 
         const setCarouselDots = () => {
-            const carouselProperties = getCarouselProperties();
-            let html = ''
-            for (let i = 0; i < carouselProperties.screensCount; i++) {
-                html += `<button data-carouselPosition="${i}" class="carousel-dot ${i === globalCarouselMovesCount ? 'active' : ''}"/>`
+            if (carouselHasDots) {
+                const carouselProperties = getCarouselProperties();
+                let html = ''
+                for (let i = 0; i < carouselProperties.screensCount; i++) {
+                    html += `<button data-carouselPosition="${i}" class="carousel-dot ${i === carouselMovesCount ? 'active' : ''}"/>`
+                }
+                carouselQuery.querySelector('.carousel-dots').innerHTML = html
+                carouselQuery.querySelectorAll('.carousel-dot').forEach((item, index) => {
+                    item.addEventListener('click', () => { handleCarouselMove(index) })
+                })
             }
-            carouselQuery.querySelector('.carousel-dots').innerHTML = html
-            carouselQuery.querySelectorAll('.carousel-dot').forEach((item, index) => {
-                item.addEventListener('click', () => { handleCarouselMove(index) })
-            })
         }
         setCarouselDots();
 
