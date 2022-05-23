@@ -4,9 +4,13 @@
 ![forks](https://img.shields.io/github/forks/YaGRRusso/easy-carousel?style=for-the-badge)
 ![licence](https://img.shields.io/github/license/YaGRRusso/easy-carousel?style=for-the-badge)
 
-> Easy-Carousel rodando simultâneamente em um página web.
+> Easy-Carousel rodando simultaneamente em um página web.
 
-<img src="carousel.png" alt="exemplo imagem">
+<img src="assets/carousel.png" alt="exemplo imagem">
+
+## [🌐 Acessar site oficial](https://yagrrusso.github.io/easy-carousel/)
+Acesse o site do projeto para ver tutoriais e exemplos de utilização.
+<br><br><br>
 
 ## ✨Funcionalidades
 Carrossel simples, funcional e editável, sem que você precise perder horas estudando como funciona tudo, ou mexendo nos códigos.
@@ -45,7 +49,7 @@ Para configurar a ferramenta, siga estas etapas (Utilize o arquivo HTML como bas
         <!-- LIVRE PARA CODAR -->
     </div>
     <div class="carousel-slide">
-        <!-- O CARROSSEL SE ADAPTA AO TAMANHO DO CONTEUDO -->
+        <!-- O CARROSSEL SE ADAPTA AO TAMANHO DO CONTEÚDO -->
     </div>
     <div class="carousel-slide">
         <!-- COLOQUE O QUE VOCÊ QUISER -->
@@ -54,7 +58,7 @@ Para configurar a ferramenta, siga estas etapas (Utilize o arquivo HTML como bas
 </div>
 ```
 
-3. Declare (com `"MIN_WIDTH"`), no arquvio CSS, a porcentagem do tamanho da classe `".CAROUSEL_SLIDE"` de acordo com quantas DIVS devem ser exibidas, incluindo no mobile.
+3. Declare (com `"MIN_WIDTH"`), no arquivo CSS, a porcentagem do tamanho da classe `".CAROUSEL_SLIDE"` de acordo com quantas DIVS devem ser exibidas, incluindo no mobile.
 
 > 4 slides desktop e 1 slide no mobile:
 ```css
@@ -86,7 +90,7 @@ Para configurar a ferramenta, siga estas etapas (Utilize o arquivo HTML como bas
 }
 ```
 
-4. Referencie uma nova classe EasyCarousel indicando o container do seu carrosel (para mais de um carrossel, repita os passos acima dentro de um `CAROUSEL-CONTAINER` diferente, você pode chamar como quiser, desde que sua estrutura interna siga o padrão).
+4. Referencie uma nova classe EasyCarousel indicando o container do seu carrossel (para mais de um carrossel, repita os passos acima dentro de um `CAROUSEL-CONTAINER` diferente, você pode chamar como quiser, desde que sua estrutura interna siga o padrão).
 ```html
 <!-- PRIMEIRO CARROSSEL -->
 <div class="carousel-container">
@@ -164,7 +168,8 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td align="center">
       <a href="https://github.com/YaGRRusso">
-        <img src="https://github.com/YaGRRusso.png" width="100px;" alt="Foto do Yago Russo no GitHub"/><br>
+        <img src="https://github.com/YaGRRusso.png" width="100px;" alt="Foto do Yago Russo no GitHub"/>
+        <br>
         <sub>
           <b>Yago Russo</b>
         </sub>
@@ -176,4 +181,4 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 ## 📝 Licença
 Esse projeto está sob licença. Veja o arquivo [LICENÇA](LICENSE) para mais detalhes.
 
-[⬆ Voltar ao topo](#easy-carousel)<br>
+[⬆ Voltar ao topo](#easy-carousel)
