@@ -288,6 +288,27 @@ header {
     text-align: end;
 }
 
+.example-info span::after {
+    content: 'ver código';
+}
+
+.carousel-example.active .example-info span::after {
+    content: 'fechar código';
+}
+
+.carousel-example pre {
+    display: none;
+}
+
+.carousel-example.active .carousel,
+.carousel-example.active .carousel-dots {
+    display: none;
+}
+
+.carousel-example.active pre {
+    display: block;
+}
+
 .carousel-example .carousel-slide {
     border: 1px solid #000;
     border-radius: 4px;
@@ -325,7 +346,7 @@ header {
 }
 
 .carousel-example.slide-margin .carousel-slide {
-    padding: 0 .5rem;
+    padding: 0 8px;
     border: 0;
     background-color: transparent;
     min-width: 50%;
@@ -338,8 +359,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    padding: 1rem 0;
     width: 100%;
     height: 100%;
 }
@@ -370,13 +389,32 @@ footer p {
 }
 
 footer a {
-    font-size: 1.5rem;
     color: #fff;
     opacity: 0.75;
     transition: all .2s;
+    margin: 0 .25rem;
 }
 
 footer a:hover {
     opacity: 1;
     transform: scale(1.1);
+}
+
+code {
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.carousel-example code {
+    margin: .5rem 0;
+}
+
+.copyright {
+    font-size: .75rem;
+    font-weight: 500;
+    background-color: #232323;
+    padding: .5rem 0;
+    color: #f2f2f2;
+    text-align: center;
+    width: 100%;
 }

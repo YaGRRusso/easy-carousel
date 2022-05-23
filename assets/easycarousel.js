@@ -1,4 +1,3 @@
-let resizeEventTimer = 0;
 class EasyCarousel {
     constructor(carouselQuery, autoSlide) {
         this.carouselQuery = carouselQuery
@@ -8,11 +7,8 @@ class EasyCarousel {
         const carouselHasDots = carouselQuery.querySelector('.carousel-dots')
 
         window.addEventListener('resize', () => {
-            clearTimeout(resizeEventTimer)
-            resizeEventTimer = setTimeout(() => {
-                getCarouselProperties()
-                setCarouselDots()
-            }, 1000)
+            getCarouselProperties();
+            setCarouselDots();
         })
 
         carouselQuery.querySelector('.carousel-control.prev') ? carouselQuery.querySelector('.carousel-control.prev').addEventListener('click', () => handleCarouselMove('prev')) : false

@@ -14,10 +14,11 @@
 <body>
 
     <div class="carousel-container">
-        <!-- =================== COPY =================== -->
         <div class="carousel">
             <button class="carousel-control prev" type="button"> « </button>
             <button class="carousel-control next" type="button"> » </button>
+            <!-- <button class="carousel-control prev outside" type="button"> « </button> -->
+            <!-- <button class="carousel-control next outside" type="button"> » </button> -->
             <div class="carousel-slider">
 
                 <div class="carousel-slide">
@@ -29,22 +30,17 @@
                 <div class="carousel-slide">
                     <span>Content 3</span>
                 </div>
-                <div class="carousel-slide">
-                    <span>Content 4</span>
-                </div>
 
             </div>
             <!-- <div class="carousel-dots absolute"></div> -->
         </div>
         <div class="carousel-dots"></div>
-        <!-- =================== COPY =================== -->
     </div>
 
+    <script src="easycarousel.js"></script>
+    <script>
+        new EasyCarousel(document.querySelector('.carousel-container'), 5000)
+    </script>
 </body>
 
 </html>
-
-<script src="easycarousel.js"></script>
-<script defer>
-    new EasyCarousel(document.querySelector('.carousel-container'))
-</script>

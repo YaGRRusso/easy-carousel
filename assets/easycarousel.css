@@ -91,3 +91,9 @@
 .carousel-slide {
     min-width: 100%;
 }
+
+@media (max-width: 768px) {
+    .carousel-slide {
+        min-width: 50%;
+    }
+}
