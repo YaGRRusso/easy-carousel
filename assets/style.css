@@ -345,7 +345,6 @@ header {
 }
 
 .carousel-example.slide-margin .carousel-slide {
-    padding: 0 8px;
     border: 0;
     background-color: transparent;
     min-width: 50%;
@@ -358,7 +357,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: calc(100% - 16px);
     height: 100%;
 }
 
