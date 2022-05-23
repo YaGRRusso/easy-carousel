@@ -205,10 +205,6 @@ header {
     border: 1px solid #00000020
 }
 
-.carousel-about .carousel-slide {
-    padding: 0 .5rem;
-}
-
 .carousel-about .carousel-slide div {
     border: 1px solid #00000040;
     border-radius: 6px;
@@ -217,7 +213,7 @@ header {
     align-items: center;
     flex-direction: column;
     padding: 1rem 0;
-    width: 100%;
+    width: calc(100% - 1rem);
     height: 100%;
 }
 
