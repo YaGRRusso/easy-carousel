@@ -372,8 +372,8 @@ footer {
     flex-direction: column;
     width: 100%;
     text-align: center;
-    padding-top: calc(4rem + 50px);
-    padding-bottom: 4rem;
+    padding-top: calc(5rem + 50px);
+    padding-bottom: 5rem;
     background-color: #323232;
     margin-top: -50px;
 }
