@@ -70,7 +70,7 @@ p {
 .fixed-navigation {
     position: absolute;
     right: 1rem;
-    z-index: 5;
+    z-index: 10;
 }
 
 .fixed-navigation ul li {
@@ -110,11 +110,19 @@ p {
     .fixed-navigation {
         top: 2.5rem;
     }
+
+    .fixed-navigation ul li {
+        margin: .25rem 0;
+    }
+
+    .fixed-navigation ul li a {
+        opacity: .75;
+    }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 768px) {
     .fixed-navigation {
-        display: none;
+        top: 1.5rem;
     }
 }
 
@@ -162,6 +170,15 @@ header {
     transform: scale(1.1);
 }
 
+.hero div {
+    display: none;
+    opacity: .75;
+}
+
+.hero div a {
+    margin: 0 .25rem;
+}
+
 .hero h1 {
     font-size: 5rem;
     text-shadow: 2px 4px 10px #00000080;
@@ -186,6 +203,16 @@ header {
 .carousel-background .carousel-slide {
     min-width: 100%;
     filter: brightness(0.5);
+}
+
+@media (max-width: 768px) {
+    .header {
+        opacity: 0;
+    }
+
+    .hero div {
+        display: block;
+    }
 }
 
 @media (max-width: 425px) {
