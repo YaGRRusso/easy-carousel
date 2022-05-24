@@ -94,6 +94,6 @@
 
 @media (max-width: 768px) {
     .carousel-slide {
-        min-width: 50%;
+        min-width: 100%;
     }
 }
