@@ -13,38 +13,32 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: all .2s;
 }
 
 .carousel-control {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0 .25rem;
+}
+
+.carousel-control.absolute {
     position: absolute;
     z-index: 5;
     opacity: .5;
-    transition: all .2s;
-    width: 1.5rem;
-    height: 1.5rem;
 }
 
-.carousel:hover .carousel-control,
+.carousel:hover .carousel-control.absolute,
 .carousel:hover .carousel-dots.absolute {
     opacity: 1;
 }
 
-.carousel-control.prev {
-    left: 1%;
+.carousel-control.absolute.prev {
+    left: 0;
 }
 
-.carousel-control.prev.outside {
-    left: -.75rem;
-    opacity: 1;
-}
-
-.carousel-control.next {
-    right: 1%;
-}
-
-.carousel-control.next.outside {
-    right: -.75rem;
-    opacity: 1;
+.carousel-control.absolute.next {
+    right: 0;
 }
 
 .carousel-slider {
@@ -68,7 +62,7 @@
     display: flex;
     justify-content: center;
     gap: .5rem;
-    margin: .5rem 0;
+    margin: .25rem 0;
 }
 
 .carousel-dots.absolute {
@@ -80,7 +74,6 @@
 .carousel-dot {
     width: .75rem;
     height: .75rem;
-    transition: all .2s;
 }
 
 .carousel-dot.active {

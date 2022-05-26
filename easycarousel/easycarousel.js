@@ -1,19 +1,19 @@
 class EasyCarousel {
     constructor(carouselQuery, autoSlide) {
-        this.carouselQuery = carouselQuery
-        this.autoSlide = autoSlide >= 100 || autoSlide !== null ? autoSlide : null
-        let carouselSlideTimer = 0
+        this.carouselQuery = carouselQuery;
+        this.autoSlide = autoSlide >= 100 || autoSlide !== null ? autoSlide : null;
+        let carouselSlideTimer = 0;
         let carouselMovesCount = 0;
-        const carouselHasDots = carouselQuery.querySelector('.carousel-dots')
+        const carouselHasDots = carouselQuery.querySelector('.carousel-dots');
 
         window.addEventListener('resize', () => {
             getCarouselProperties();
             setCarouselButtons();
-            handleCarouselMove(0)
+            handleCarouselMove(0);
         })
 
-        carouselQuery.querySelector('.carousel-control.prev') ? carouselQuery.querySelector('.carousel-control.prev').addEventListener('click', () => handleCarouselMove('prev')) : false
-        carouselQuery.querySelector('.carousel-control.next') ? carouselQuery.querySelector('.carousel-control.next').addEventListener('click', () => handleCarouselMove('next')) : false
+        carouselQuery.querySelector('.carousel-control.prev') ? carouselQuery.querySelector('.carousel-control.prev').addEventListener('click', () => handleCarouselMove('prev')) : false;
+        carouselQuery.querySelector('.carousel-control.next') ? carouselQuery.querySelector('.carousel-control.next').addEventListener('click', () => handleCarouselMove('next')) : false;
 
         // CAROUSEL
         const getCarouselProperties = () => {
@@ -28,42 +28,42 @@ class EasyCarousel {
 
         const handleCarouselMove = (value) => {
             if (autoSlide) {
-                clearInterval(carouselSlideTimer)
-                carouselSlideTimer = setInterval(() => handleCarouselMove('next'), autoSlide)
+                clearInterval(carouselSlideTimer);
+                carouselSlideTimer = setInterval(() => handleCarouselMove('next'), autoSlide);
             }
 
             const carouselProperties = getCarouselProperties();
             switch (value) {
-                case 'prev': carouselMovesCount -= 1
+                case 'prev': carouselMovesCount -= 1;
                     break
-                case 'next': carouselMovesCount += 1
+                case 'next': carouselMovesCount += 1;
                     break
-                default: carouselMovesCount = value
+                default: carouselMovesCount = value;
             }
 
-            carouselMovesCount >= carouselProperties.screensCount ? carouselMovesCount = 0 : false
-            carouselMovesCount < 0 ? carouselMovesCount = carouselProperties.screensCount - 1 : false
+            carouselMovesCount >= carouselProperties.screensCount ? carouselMovesCount = 0 : false;
+            carouselMovesCount < 0 ? carouselMovesCount = carouselProperties.screensCount - 1 : false;
 
             carouselQuery.querySelectorAll('.carousel-slide').forEach(item => {
-                item.style.transform = `translateX(-${carouselMovesCount * carouselProperties.translatePercent}%)`
+                item.style.transform = `translateX(-${carouselMovesCount * carouselProperties.translatePercent}%)`;
             })
 
             if (carouselHasDots && carouselProperties.screensCount > 1) {
-                carouselQuery.querySelector('.carousel-dot.active') ? carouselQuery.querySelector('.carousel-dot.active').classList.remove('active') : ''
-                carouselQuery.querySelector(`[data-dot="${carouselMovesCount}"]`).classList.add('active')
+                carouselQuery.querySelector('.carousel-dot.active') ? carouselQuery.querySelector('.carousel-dot.active').classList.remove('active') : '';
+                carouselQuery.querySelector(`[data-dot="${carouselMovesCount}"]`).classList.add('active');
             }
         }
-        autoSlide ? carouselSlideTimer = setInterval(() => { handleCarouselMove('next') }, autoSlide) : false
+        autoSlide ? carouselSlideTimer = setInterval(() => { handleCarouselMove('next') }, autoSlide) : false;
 
         const setCarouselDots = () => {
             const carouselProperties = getCarouselProperties();
-            let html = ''
+            let html = '';
             for (let i = 0; i < carouselProperties.screensCount; i++) {
-                html += `<button data-dot="${i}" class="carousel-dot ${i === carouselMovesCount ? 'active' : ''}"/>`
+                html += `<button data-dot="${i}" class="carousel-dot ${i === carouselMovesCount ? 'active' : ''}"/>`;
             }
-            carouselQuery.querySelector('.carousel-dots').innerHTML = html
+            carouselQuery.querySelector('.carousel-dots').innerHTML = html;
             carouselQuery.querySelectorAll('.carousel-dot').forEach((item, index) => {
-                item.addEventListener('click', () => { handleCarouselMove(index) })
+                item.addEventListener('click', () => { handleCarouselMove(index) });
             })
         }
 
@@ -73,13 +73,15 @@ class EasyCarousel {
                 carouselQuery.querySelectorAll('.carousel-control').forEach(item => {
                     item.style.display = 'flex';
                 })
-                carouselQuery.querySelector('.carousel-dots').style.display = 'flex'
-                carouselHasDots ? setCarouselDots() : false;
+                if (carouselHasDots) {
+                    carouselQuery.querySelector('.carousel-dots').style.display = 'flex'
+                    setCarouselDots();
+                }
             } else {
                 carouselQuery.querySelectorAll('.carousel-control').forEach(item => {
                     item.style.display = 'none';
                 })
-                carouselQuery.querySelector('.carousel-dots').style.display = 'none'
+                carouselHasDots ? carouselQuery.querySelector('.carousel-dots').style.display = 'none' : false;
             }
         }
         setCarouselButtons();
@@ -90,8 +92,8 @@ class EasyCarousel {
         const gestureArea = carouselQuery.querySelector('.carousel-slider');
 
         window.addEventListener('keydown', (ev) => {
-            ev.key === 'ArrowRight' ? handleCarouselMove('next') : false
-            ev.key === 'ArrowLeft' ? handleCarouselMove('prev') : false
+            ev.key === 'ArrowRight' ? handleCarouselMove('next') : false;
+            ev.key === 'ArrowLeft' ? handleCarouselMove('prev') : false;
         })
         gestureArea.addEventListener('touchstart', (ev) => {
             globalGestureStart = ev.changedTouches[0].screenX;
