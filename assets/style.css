@@ -270,9 +270,9 @@ header {
 #examples {
     position: relative;
     background-color: #f7f7f7;
-    padding-top: calc(3rem + 80px);
+    padding-top: calc(3rem + 7vw);
     padding-bottom: 100px;
-    clip-path: polygon(0 0, 100% 100px, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 7vw, 100% 100%, 0% 100%);
 }
 
 .example-title {
@@ -396,17 +396,17 @@ header {
 
 /* FOOTER */
 footer {
-    clip-path: polygon(50% 50px, 100% 0%, 100% 100%, 0 100%, 0 0);
+    clip-path: polygon(50% 3vw, 100% 0%, 100% 100%, 0 100%, 0 0);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 100%;
     text-align: center;
-    padding-top: calc(5rem + 50px);
+    padding-top: calc(5rem + 3vw);
     padding-bottom: 5rem;
     background-color: #323232;
-    margin-top: -50px;
+    margin-top: -3vw;
 }
 
 footer span {

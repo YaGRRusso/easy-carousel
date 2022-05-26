@@ -47,7 +47,7 @@ class EasyCarousel {
                 item.style.transform = `translateX(-${carouselMovesCount * carouselProperties.translatePercent}%)`
             })
 
-            if (carouselHasDots) {
+            if (carouselHasDots && carouselProperties.screensCount > 1) {
                 carouselQuery.querySelector('.carousel-dot.active') ? carouselQuery.querySelector('.carousel-dot.active').classList.remove('active') : ''
                 carouselQuery.querySelector(`[data-dot="${carouselMovesCount}"]`).classList.add('active')
             }
@@ -55,8 +55,8 @@ class EasyCarousel {
         autoSlide ? carouselSlideTimer = setInterval(() => { handleCarouselMove('next') }, autoSlide) : false
 
         const setCarouselDots = () => {
-            if (carouselHasDots) {
-                const carouselProperties = getCarouselProperties();
+            const carouselProperties = getCarouselProperties();
+            if (carouselHasDots && carouselProperties.screensCount > 1) {
                 let html = ''
                 for (let i = 0; i < carouselProperties.screensCount; i++) {
                     html += `<button data-dot="${i}" class="carousel-dot ${i === carouselMovesCount ? 'active' : ''}"/>`
