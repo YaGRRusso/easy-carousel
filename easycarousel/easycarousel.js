@@ -1,14 +1,15 @@
 class EasyCarousel {
     constructor(carouselQuery, autoSlide) {
         this.carouselQuery = carouselQuery
-        this.autoSlide = autoSlide !== 100 || autoSlide !== null ? autoSlide : null
+        this.autoSlide = autoSlide >= 100 || autoSlide !== null ? autoSlide : null
         let carouselSlideTimer = 0
         let carouselMovesCount = 0;
         const carouselHasDots = carouselQuery.querySelector('.carousel-dots')
 
         window.addEventListener('resize', () => {
             getCarouselProperties();
-            setCarouselDots();
+            setCarouselButtons();
+            handleCarouselMove(0)
         })
 
         carouselQuery.querySelector('.carousel-control.prev') ? carouselQuery.querySelector('.carousel-control.prev').addEventListener('click', () => handleCarouselMove('prev')) : false
@@ -56,18 +57,32 @@ class EasyCarousel {
 
         const setCarouselDots = () => {
             const carouselProperties = getCarouselProperties();
-            if (carouselHasDots && carouselProperties.screensCount > 1) {
-                let html = ''
-                for (let i = 0; i < carouselProperties.screensCount; i++) {
-                    html += `<button data-dot="${i}" class="carousel-dot ${i === carouselMovesCount ? 'active' : ''}"/>`
-                }
-                carouselQuery.querySelector('.carousel-dots').innerHTML = html
-                carouselQuery.querySelectorAll('.carousel-dot').forEach((item, index) => {
-                    item.addEventListener('click', () => { handleCarouselMove(index) })
+            let html = ''
+            for (let i = 0; i < carouselProperties.screensCount; i++) {
+                html += `<button data-dot="${i}" class="carousel-dot ${i === carouselMovesCount ? 'active' : ''}"/>`
+            }
+            carouselQuery.querySelector('.carousel-dots').innerHTML = html
+            carouselQuery.querySelectorAll('.carousel-dot').forEach((item, index) => {
+                item.addEventListener('click', () => { handleCarouselMove(index) })
+            })
+        }
+
+        const setCarouselButtons = () => {
+            const carouselProperties = getCarouselProperties();
+            if (carouselProperties.screensCount > 1) {
+                carouselQuery.querySelectorAll('.carousel-control').forEach(item => {
+                    item.style.display = 'flex';
                 })
+                carouselQuery.querySelector('.carousel-dots').style.display = 'flex'
+                carouselHasDots ? setCarouselDots() : false;
+            } else {
+                carouselQuery.querySelectorAll('.carousel-control').forEach(item => {
+                    item.style.display = 'none';
+                })
+                carouselQuery.querySelector('.carousel-dots').style.display = 'none'
             }
         }
-        setCarouselDots();
+        setCarouselButtons();
 
         // ACCESSIBILITY
         let globalGestureStart = 0;
