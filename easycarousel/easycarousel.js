@@ -15,6 +15,16 @@ class EasyCarousel {
         carouselQuery.querySelector('.carousel-control.prev') ? carouselQuery.querySelector('.carousel-control.prev').addEventListener('click', () => handleCarouselMove('prev')) : false;
         carouselQuery.querySelector('.carousel-control.next') ? carouselQuery.querySelector('.carousel-control.next').addEventListener('click', () => handleCarouselMove('next')) : false;
 
+        if (autoSlide) {
+            carouselQuery.querySelector('.carousel-slider').addEventListener('mouseenter', () => {
+                clearInterval(carouselSlideTimer);
+            })
+            carouselQuery.querySelector('.carousel-slider').addEventListener('mouseleave', () => {
+                carouselSlideTimer = setInterval(() => handleCarouselMove('next'), autoSlide);
+            })
+        }
+
+
         // CAROUSEL
         const getCarouselProperties = () => {
             const slidesCount = carouselQuery.querySelectorAll('.carousel-slide').length;
