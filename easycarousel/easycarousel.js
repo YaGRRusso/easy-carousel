@@ -2,9 +2,10 @@ class EasyCarousel {
     constructor(carouselQuery, autoSlide) {
         this.carouselQuery = carouselQuery;
         this.autoSlide = autoSlide >= 100 || autoSlide !== null ? autoSlide : null;
+        const carouselHasDots = carouselQuery.querySelector('.carousel-dots');
+        const carouselSlider = carouselQuery.querySelector('.carousel-slider');
         let carouselSlideTimer = 0;
         let carouselMovesCount = 0;
-        const carouselHasDots = carouselQuery.querySelector('.carousel-dots');
 
         window.addEventListener('resize', () => {
             getCarouselProperties();
@@ -16,14 +17,13 @@ class EasyCarousel {
         carouselQuery.querySelector('.carousel-control.next') ? carouselQuery.querySelector('.carousel-control.next').addEventListener('click', () => handleCarouselMove('next')) : false;
 
         if (autoSlide) {
-            carouselQuery.querySelector('.carousel-slider').addEventListener('mouseenter', () => {
+            carouselSlider.addEventListener('mouseenter', () => {
                 clearInterval(carouselSlideTimer);
             })
-            carouselQuery.querySelector('.carousel-slider').addEventListener('mouseleave', () => {
+            carouselSlider.addEventListener('mouseleave', () => {
                 carouselSlideTimer = setInterval(() => handleCarouselMove('next'), autoSlide);
             })
         }
-
 
         // CAROUSEL
         const getCarouselProperties = () => {
@@ -53,9 +53,7 @@ class EasyCarousel {
 
             carouselMovesCount >= carouselProperties.screensCount ? carouselMovesCount = 0 : false;
             carouselMovesCount < 0 ? carouselMovesCount = carouselProperties.screensCount - 1 : false;
-
-            carouselQuery.querySelector('.carousel-slider').scrollLeft = carouselMovesCount * carouselProperties.slideWidth
-
+            carouselSlider.scrollLeft = carouselMovesCount * carouselProperties.slideWidth
 
             if (carouselHasDots && carouselProperties.screensCount > 1) {
                 carouselQuery.querySelector('.carousel-dot.active') ? carouselQuery.querySelector('.carousel-dot.active').classList.remove('active') : '';
@@ -98,29 +96,20 @@ class EasyCarousel {
         // ACCESSIBILITY
         let globalGestureStart = 0;
         let globalGestureEnd = 0;
-        const gestureArea = carouselQuery.querySelector('.carousel-slider');
 
         window.addEventListener('keydown', (ev) => {
             ev.key === 'ArrowRight' ? handleCarouselMove('next') : false;
             ev.key === 'ArrowLeft' ? handleCarouselMove('prev') : false;
         })
-        gestureArea.addEventListener('touchstart', (ev) => {
-            gestureArea.style.overflow = 'scroll'
+        carouselSlider.addEventListener('touchstart', (ev) => {
+            carouselSlider.style.overflow = 'scroll'
             globalGestureStart = ev.changedTouches[0].screenX;
         });
-        gestureArea.addEventListener('touchend', (ev) => {
-            gestureArea.style.overflow = 'hidden'
+        carouselSlider.addEventListener('touchend', (ev) => {
+            carouselSlider.style.overflow = 'hidden'
             globalGestureEnd = ev.changedTouches[0].screenX;
             handleGesture();
         });
-        gestureArea.addEventListener('mousedown', (ev) => {
-            ev.preventDefault();
-            globalGestureStart = ev.screenX;
-        })
-        gestureArea.addEventListener('mouseup', (ev) => {
-            globalGestureEnd = ev.screenX;
-            handleGesture();
-        })
 
         const handleGesture = () => {
             if (globalGestureEnd <= globalGestureStart) {
