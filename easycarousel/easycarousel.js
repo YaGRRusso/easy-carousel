@@ -28,12 +28,12 @@ class EasyCarousel {
         // CAROUSEL
         const getCarouselProperties = () => {
             const slidesCount = carouselQuery.querySelectorAll('.carousel-slide').length;
-            const slideWidth = parseInt(getComputedStyle(carouselQuery.querySelector('.carousel-slide')).minWidth);
-            const slidesPerScreen = Math.round(100 / slideWidth);
+            const slidePercent = parseInt(getComputedStyle(carouselQuery.querySelector('.carousel-slide')).minWidth);
+            const slidesPerScreen = Math.round(100 / slidePercent);
             const screensCount = slidesCount - (slidesPerScreen - 1);
-            const translatePercent = 100;
+            const slideWidth = carouselQuery.querySelector('.carousel-slide').offsetWidth;
 
-            return { screensCount, translatePercent }
+            return { screensCount, slideWidth }
         }
 
         const handleCarouselMove = (value) => {
@@ -54,9 +54,8 @@ class EasyCarousel {
             carouselMovesCount >= carouselProperties.screensCount ? carouselMovesCount = 0 : false;
             carouselMovesCount < 0 ? carouselMovesCount = carouselProperties.screensCount - 1 : false;
 
-            carouselQuery.querySelectorAll('.carousel-slide').forEach(item => {
-                item.style.transform = `translateX(-${carouselMovesCount * carouselProperties.translatePercent}%)`;
-            })
+            carouselQuery.querySelector('.carousel-slider').scrollLeft = carouselMovesCount * carouselProperties.slideWidth
+
 
             if (carouselHasDots && carouselProperties.screensCount > 1) {
                 carouselQuery.querySelector('.carousel-dot.active') ? carouselQuery.querySelector('.carousel-dot.active').classList.remove('active') : '';
@@ -106,9 +105,11 @@ class EasyCarousel {
             ev.key === 'ArrowLeft' ? handleCarouselMove('prev') : false;
         })
         gestureArea.addEventListener('touchstart', (ev) => {
+            gestureArea.style.overflow = 'scroll'
             globalGestureStart = ev.changedTouches[0].screenX;
         });
         gestureArea.addEventListener('touchend', (ev) => {
+            gestureArea.style.overflow = 'hidden'
             globalGestureEnd = ev.changedTouches[0].screenX;
             handleGesture();
         });
