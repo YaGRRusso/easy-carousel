@@ -466,3 +466,8 @@ code {
   text-align: center;
   width: 100%;
 }
+
+.copyright a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
