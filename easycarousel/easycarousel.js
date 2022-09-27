@@ -40,8 +40,9 @@ class EasyCarousel {
 
     // CAROUSEL
     const getCarouselProperties = () => {
-      const slidesCount =
-        carouselQuery.querySelectorAll(".carousel-slide").length;
+      const slidesCount = carouselQuery.querySelectorAll(
+        ".carousel-slide:not([style*='display:none'])"
+      ).length;
       const slidePercent = parseInt(
         getComputedStyle(carouselQuery.querySelector(".carousel-slide"))
           .minWidth
