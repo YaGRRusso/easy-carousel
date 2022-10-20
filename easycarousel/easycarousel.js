@@ -131,9 +131,11 @@ class EasyCarousel {
             item.classList.remove("hidden");
           });
         }
-        if (carouselDots) carouselDots.classList.remove("hidden");
+        if (carouselDots) {
+          carouselDots.classList.remove("hidden");
+          setCarouselDots();
+        }
       }
-      setCarouselDots();
     };
     setCarouselButtons();
 

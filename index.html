@@ -331,8 +331,7 @@
             ou até mesmo coloca-las dentro ou fora do carrossel (como mostram as
             linhas comentadas).
           </p>
-          <pre>
-                    <code>
+          <pre><code>
 &lt;div class=&quot;carousel-container&quot;&gt;
     &lt;div class=&quot;carousel&quot;&gt;
         &lt;button class=&quot;carousel-control absolute prev&quot; type=&quot;button&quot;&gt; &#171; &lt;/button&gt;
@@ -356,8 +355,7 @@
     &lt;/div&gt;
     &lt;div class=&quot;carousel-dots&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
-                    </code>
-                </pre>
+</code></pre>
           <p>
             Após a criação do carrossel conforme visto acima, referencie-os no
             script, caso queira que o carrossel passe os slides automaticamente,
@@ -365,15 +363,13 @@
             <strong>ms</strong>
             após o querySelector, seguindo o exemplo a baixo.
           </p>
-          <pre>
-                    <code>
+          <pre><code>
 &lt;script src=&quot;easycarousel.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
     new EasyCarousel(document.querySelector(&#39;.carousel-container&#39;))
     new EasyCarousel(document.querySelector(&#39;.carousel-container.segundo&#39;), 5000)
 &lt;/script&gt;
-                    </code>
-                </pre>
+</code></pre>
         </div>
         <div class="example">
           <h4 class="example-title">Padrão CSS</h4>
@@ -387,8 +383,7 @@
             quantidade de slides mostrados em tela no carrossel, utilize apenas
             <strong>min-width</strong>.
           </p>
-          <pre>
-                    <code>
+          <pre><code>
 /* 4 slides em tela - desktop */
 .carousel-container-xxx .carousel-slide{
     min-width: 25%; /* ou */ min-width: calc(100%/4);
@@ -400,8 +395,7 @@
         min-width: 50%; /* ou */ min-width: calc(100%/2);
     }
 }
-                    </code>
-                </pre>
+</code></pre>
           <span style="opacity: 0.75; font-size: 0.75rem">
             OBS: nunca coloque <strong>margin</strong> no
             <strong>.carousel-slide</strong>, isso pode quebrar o funcionamento
@@ -463,7 +457,14 @@
     &lt;button class=&quot;carousel-control next&quot; type=&quot;button&quot;&gt; &#187; &lt;/button&gt;
 &lt;/div&gt;
 &lt;div class=&quot;carousel-dots&quot;&gt;&lt;/div&gt;
-                    </code></pre>
+</code></pre>
+            <pre><code>
+&lt;script&gt;
+  new EasyCarousel(
+    document.querySelector(".carousel"), 5000
+  );
+&lt;/script&gt;
+</code></pre>
             <div class="carousel">
               <button class="carousel-control prev" type="button">«</button>
               <div class="carousel-slider">
@@ -512,7 +513,14 @@
     &lt;/div&gt;
     &lt;div class=&quot;carousel-dots absolute&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
-                    </code></pre>
+</code></pre>
+            <pre><code>
+&lt;script&gt;
+  new EasyCarousel(
+    document.querySelector(".carousel"), 5000
+  );
+&lt;/script&gt;
+</code></pre>
             <div class="carousel">
               <button class="carousel-control absolute prev" type="button">
                 «
@@ -562,7 +570,14 @@
         
     &lt;/div&gt;
 &lt;/div&gt;
-                    </code></pre>
+</code></pre>
+            <pre><code>
+&lt;script&gt;
+  new EasyCarousel(
+    document.querySelector(".carousel"), 5000
+  );
+&lt;/script&gt;
+</code></pre>
             <div class="carousel">
               <div class="carousel-slider">
                 <div class="carousel-slide">
@@ -628,7 +643,7 @@
     &lt;/div&gt;
     &lt;div class=&quot;carousel-dots absolute&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
-                    </code></pre>
+</code></pre>
             <pre><code>
 .carousel-slide {
     min-width: 25%;
@@ -645,7 +660,14 @@
         min-width: 100%;
     }
 }
-                    </code></pre>
+</code></pre>
+            <pre><code>
+&lt;script&gt;
+  new EasyCarousel(
+    document.querySelector(".carousel"), 5000
+  );
+&lt;/script&gt;
+</code></pre>
             <div class="carousel">
               <button class="carousel-control absolute prev" type="button">
                 «
@@ -718,7 +740,7 @@
     &lt;/div&gt;
     &lt;div class=&quot;carousel-dots absolute&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
-                    </code></pre>
+</code></pre>
             <pre><code>
 /* PRIMEIRA OPÇÃO */
 .carousel-slide{
@@ -729,14 +751,21 @@
     width: 100%;
     height: 100%;
 }
-                    </code></pre>
+</code></pre>
             <pre><code>
 /* SEGUNDA OPÇÃO */
 .carousel-slide div {
     width: calc(100% - 16px);
     height: 100%;
 }
-                    </code></pre>
+</code></pre>
+            <pre><code>
+&lt;script&gt;
+  new EasyCarousel(
+    document.querySelector(".carousel"), 5000
+  );
+&lt;/script&gt;
+</code></pre>
             <div class="carousel">
               <button class="carousel-control absolute prev" type="button">
                 «

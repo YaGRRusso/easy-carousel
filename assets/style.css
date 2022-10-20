@@ -36,6 +36,7 @@ section {
 p {
   font-size: 0.9rem;
   color: #121212;
+  margin-block: 0.6rem;
 }
 
 .section-title {
