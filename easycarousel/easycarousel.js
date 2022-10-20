@@ -3,6 +3,11 @@ class EasyCarousel {
     this.carouselQuery = carouselQuery;
     this.autoSlide = autoSlide >= 100 || autoSlide !== null ? autoSlide : null;
 
+    const slidesCount = carouselQuery.querySelectorAll(
+      ".carousel-slide:not([style*='display:none'])"
+    ).length;
+    if (!slidesCount) return;
+
     const carouselDots = carouselQuery.querySelector(".carousel-dots");
     const carouselSlider = carouselQuery.querySelector(".carousel-slider");
     const carouselControls =
@@ -40,9 +45,6 @@ class EasyCarousel {
 
     // CAROUSEL
     const getCarouselProperties = () => {
-      const slidesCount = carouselQuery.querySelectorAll(
-        ".carousel-slide:not([style*='display:none'])"
-      ).length;
       const slidePercent = parseInt(
         getComputedStyle(carouselQuery.querySelector(".carousel-slide"))
           .minWidth
@@ -116,20 +118,22 @@ class EasyCarousel {
 
     const setCarouselButtons = () => {
       const carouselProperties = getCarouselProperties();
-      if (carouselProperties.screensCount > 1) {
-        carouselControls.forEach((item) => {
-          item.style.display = "flex";
-        });
-        if (carouselDots) {
-          carouselDots.style.display = "flex";
-          setCarouselDots();
+      if (carouselProperties.screensCount <= 1) {
+        if (carouselControls) {
+          carouselControls.forEach((item) => {
+            item.classList.add("hidden");
+          });
         }
+        if (carouselDots) carouselDots.classList.add("hidden");
       } else {
-        carouselControls.forEach((item) => {
-          item.style.display = "none";
-        });
-        if (carouselDots) carouselDots.style.display = "none";
+        if (carouselControls) {
+          carouselControls.forEach((item) => {
+            item.classList.remove("hidden");
+          });
+        }
+        if (carouselDots) carouselDots.classList.remove("hidden");
       }
+      setCarouselDots();
     };
     setCarouselButtons();
 
