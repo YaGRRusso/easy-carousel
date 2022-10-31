@@ -339,6 +339,7 @@
         &lt;!-- &lt;button class=&quot;carousel-control absolute prev&quot; type=&quot;button&quot;&gt; &#171; &lt;/button&gt; --&gt;
         &lt;!-- &lt;button class=&quot;carousel-control absolute next&quot; type=&quot;button&quot;&gt; &#187; &lt;/button&gt; --&gt;
         &lt;div class=&quot;carousel-slider&quot;&gt;
+        &lt;!-- &lt;div class=&quot;carousel-slider gap&quot; --&gt;
 
             &lt;div class=&quot;carousel-slide&quot;&gt;
                 &lt;span&gt;Content 1&lt;/span&gt;
@@ -714,7 +715,8 @@
 &lt;div class=&quot;carousel&quot;&gt;
     &lt;button class=&quot;carousel-control absolute prev&quot; type=&quot;button&quot;&gt; &#171; &lt;/button&gt;
     &lt;button class=&quot;carousel-control absolute next&quot; type=&quot;button&quot;&gt; &#187; &lt;/button&gt;
-    &lt;div class=&quot;carousel-slider&quot;&gt;
+    &lt;!-- basta adicionar a classe "gap" no 'carousel-slider' --&gt;
+    &lt;div class=&quot;carousel-slider gap&quot;&gt;
 
         &lt;div class=&quot;carousel-slide&quot;&gt;
             &lt;div&gt;
@@ -741,7 +743,7 @@
     &lt;div class=&quot;carousel-dots absolute&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-            <pre><code>
+            <!-- <pre><code>
 /* PRIMEIRA OPÇÃO */
 .carousel-slide{
     padding: 0 16px
@@ -751,14 +753,14 @@
     width: 100%;
     height: 100%;
 }
-</code></pre>
-            <pre><code>
+</code></pre> -->
+            <!-- <pre><code>
 /* SEGUNDA OPÇÃO */
 .carousel-slide div {
     width: calc(100% - 16px);
     height: 100%;
 }
-</code></pre>
+</code></pre> -->
             <pre><code>
 &lt;script&gt;
   new EasyCarousel(
@@ -773,7 +775,7 @@
               <button class="carousel-control absolute next" type="button">
                 »
               </button>
-              <div class="carousel-slider">
+              <div class="carousel-slider gap">
                 <div class="carousel-slide">
                   <div>
                     <span>Content 1</span>
